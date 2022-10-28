@@ -1,0 +1,9 @@
+AllCops:
+  TargetRubyVersion: 2.6
+  NewCops: enable
+  SuggestExtensions: false
+Layout/HashAlignment:
+  EnforcedHashRocketStyle: table
+Layout/LineLength:
+  Exclude:
+    - '*.gemspec'
