@@ -6,7 +6,7 @@ require 'net/http'
 
 def find_dataset
   source_file = 'query-sets.json'
-  source_file_paths = ['./data', '/usr/share/bqm/data', '~/.local/share/bqm/data']
+  source_file_paths = ['./data', "#{__dir__}/../data", '/usr/share/bqm/data', '~/.local/share/bqm/data']
   source_file_paths.each do |path|
     candidate = "#{path}/#{source_file}"
     return candidate if File.file?(candidate) && File.readable?(candidate)

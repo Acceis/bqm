@@ -3,3 +3,4 @@ vendor/
 *.gem
 packages/**/pkg
 packages/**/src
+*.tar.zst
