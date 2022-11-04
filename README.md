@@ -33,8 +33,18 @@ See [INSTALL](INSTALL.md) for options with package managers.
 ```
 Usage: bqm [options]
     -o, --output-path PATH           Path where to store the query file
+    -l, --list                       List available datasets
 
 Example: bqm -o ~/.config/bloodhound/customqueries.json
+```
+
+Example:
+
+```
+$ bqm -o ~/.config/bloodhound/customqueries.json
+[+] Fetching and merging datasets
+[+] Removing duplicates
+[+] All queries have been merged in /home/noraj/.config/bloodhound/customqueries.json
 ```
 
 ## Datasets

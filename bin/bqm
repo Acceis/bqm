@@ -15,9 +15,9 @@ def find_dataset
 end
 
 def merge(source)
-  src = JSON.load_file(source)
+  sets = get_datasets(source)
   queries = []
-  src['sets'].each do |s|
+  sets.each do |s|
     customqueries = Net::HTTP.get(URI(s))
     data = JSON.parse(customqueries)
     queries += data['queries']
@@ -46,6 +46,23 @@ def deduplicate(data)
   data.map { |x| BQMquery.new(x) }.uniq
 end
 
+# Transform a list of raw github links to pretty github links
+# from https://raw.githubusercontent.com/namespace/project/branch/file.ext
+# to https://github.com/namespace/project/blob/branch/file.ext
+def pretty_link(lst)
+  output = []
+  lst.each do |link|
+    _protocol, _void, _host, namespace, project, branch, *path = link.split('/')
+    output << "    https://github.com/#{namespace}/#{project}/blob/#{branch}/#{path.join('/')}"
+  end
+  output
+end
+
+def get_datasets(source)
+  src = JSON.load_file(source)
+  src['sets']
+end
+
 if __FILE__ == $PROGRAM_NAME
   source = find_dataset
 
@@ -55,12 +72,19 @@ if __FILE__ == $PROGRAM_NAME
     parser.banner = 'Usage: bqm [options]'
 
     parser.on('-o', '--output-path PATH', 'Path where to store the query file')
+    parser.on('-l', '--list', 'List available datasets')
     parser.separator ''
     parser.separator 'Example: bqm -o ~/.config/bloodhound/customqueries.json'
   end.parse!(into: options)
 
   out = options[:'output-path']
-  if out
+  list = options[:list]
+  if list
+    puts '[+] Available datasets:'
+    pretty_link(get_datasets(source)).each do |l|
+      puts l
+    end
+  elsif out
     puts "[+] Fetching and merging datasets"
     data = merge(source)
     puts "[+] Removing duplicates"
@@ -70,7 +94,7 @@ if __FILE__ == $PROGRAM_NAME
       json = JSON.pretty_generate({ 'queries' => queries })
       file.write(json)
     end
-    puts "[+] All queries are merged in #{out}"
+    puts "[+] All queries have been merged in #{out}"
   else
     puts 'Help: bqm -h'
   end
