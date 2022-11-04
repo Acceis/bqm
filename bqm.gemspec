@@ -4,7 +4,7 @@ Gem::Specification.new do |s|
   s.name          = 'bqm'
   s.version       = '1.0.0'
   s.platform      = Gem::Platform::RUBY
-  s.summary       = 'HAsh IdenTifIer'
+  s.summary       = 'Deduplicate custom BloudHound queries from different datasets and merge them in one customqueries.json file.'
   s.description   = 'Deduplicate custom BloudHound queries from different datasets and merge them in one customqueries.json file.'
   s.authors       = ['Alexandre ZANNI']
   s.email         = 'alexandre.zanni@europe.com'
