@@ -31,7 +31,7 @@ Manually:
 ```
 $ git clone https://aur.archlinux.org/bqm.git
 $ cd bqm
-$ makepkg -sic
+$ makepkg -fsri
 ```
 
 With an AUR helper ([Pacman wrappers](https://wiki.archlinux.org/index.php/AUR_helpers#Pacman_wrappers)), eg. pikaur:

@@ -3,4 +3,5 @@ vendor/
 *.gem
 packages/**/pkg
 packages/**/src
+packages/**/bqm
 *.tar.zst
