@@ -14,7 +14,7 @@ No install, just clone the repository and run! No dependencies, just pure Ruby.
 
 ```bash
 git clone https://github.com/Acceis/bqm.git && cd bqm
-ruby bqm.rb -h
+ruby bin/bqm -h
 ```
 
 ### Gem
@@ -32,10 +32,10 @@ Coming soon
 ## Usage
 
 ```
-Usage: bqm.rb [options]
+Usage: bqm [options]
     -o, --output-path PATH           Path where to store the query file
 
-Example: bqm.rb -o ~/.config/bloodhound/customqueries.json
+Example: bqm -o ~/.config/bloodhound/customqueries.json
 ```
 
 ## Datasets

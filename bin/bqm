@@ -54,11 +54,11 @@ if __FILE__ == $PROGRAM_NAME
   require 'optparse'
   options = {}
   OptionParser.new do |parser|
-    parser.banner = 'Usage: bqm.rb [options]'
+    parser.banner = 'Usage: bqm [options]'
 
     parser.on('-o', '--output-path PATH', 'Path where to store the query file')
     parser.separator ''
-    parser.separator 'Example: bqm.rb -o ~/.config/bloodhound/customqueries.json'
+    parser.separator 'Example: bqm -o ~/.config/bloodhound/customqueries.json'
   end.parse!(into: options)
 
   out = options[:'output-path']
@@ -68,6 +68,6 @@ if __FILE__ == $PROGRAM_NAME
       file.write(json)
     end
   else
-    puts 'Help: bqm.rb -h'
+    puts 'Help: bqm -h'
   end
 end

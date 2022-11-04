@@ -1,3 +1,5 @@
 .bundle
 vendor/
 *.gem
+packages/**/pkg
+packages/**/src
