@@ -17,17 +17,9 @@ git clone https://github.com/Acceis/bqm.git && cd bqm
 ruby bin/bqm -h
 ```
 
-### Gem
+[![Packaging status](https://repology.org/badge/vertical-allrepos/bqm.svg)](https://repology.org/project/bqm/versions)
 
-Coming soon
-
-### BlackArch
-
-Coming soon
-
-### AUR
-
-Coming soon
+See [INSTALL](INSTALL.md) for options with package managers.
 
 ## Usage
 
