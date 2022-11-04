@@ -1,5 +1,13 @@
 # BQM (Bloodhound Query Merger)
 
+[![GitHub forks](https://img.shields.io/github/forks/Acceis/bqm)](https://github.com/Acceis/bqm/network)
+[![GitHub stars](https://img.shields.io/github/stars/Acceis/bqm)](https://github.com/Acceis/bqm/stargazers)
+[![GitHub license](https://img.shields.io/github/license/Acceis/bqm)](https://github.com/Acceis/bqm/blob/master/LICENSE)
+[![Rawsec's CyberSecurity Inventory](https://inventory.raw.pm/img/badges/Rawsec-inventoried-FF5050_flat.svg)](https://inventory.raw.pm/tools.html#BQM)
+
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Acceis/bqm/Ruby)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/y/Acceis/bqm)
+
 ![BQM logo](assets/logo-bqm.png)
 
 > Tool to deduplicate custom BloudHound queries from different datasets and merge them in one `customqueries.json` file.
@@ -14,6 +22,7 @@
 - Fetch all query datasets
 - Remove duplicate queries
 - Merge all queries in one file
+- List all available datasets
 
 ## Install
 
