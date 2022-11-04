@@ -85,9 +85,9 @@ if __FILE__ == $PROGRAM_NAME
       puts l
     end
   elsif out
-    puts "[+] Fetching and merging datasets"
+    puts '[+] Fetching and merging datasets'
     data = merge(source)
-    puts "[+] Removing duplicates"
+    puts '[+] Removing duplicates'
     queries = deduplicate(data).map(&:data)
 
     File.open(out, 'w') do |file|
