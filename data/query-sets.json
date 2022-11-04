@@ -6,6 +6,11 @@
     "https://raw.githubusercontent.com/awsmhacks/awsmBloodhoundCustomQueries/master/customqueries.json",
     "https://raw.githubusercontent.com/porterhau5/BloodHound-Owned/master/customqueries.json",
     "https://raw.githubusercontent.com/ZephrFish/Bloodhound-CustomQueries/main/customqueries.json",
-    "https://raw.githubusercontent.com/Scoubi/BloodhoundAD-Queries/master/customqueries.json"
+    "https://raw.githubusercontent.com/Scoubi/BloodhoundAD-Queries/master/customqueries.json",
+    "https://raw.githubusercontent.com/InfamousSYN/bloodhound-queries/main/customqueries.json",
+    "https://raw.githubusercontent.com/zeronetworks/BloodHound-Tools/main/CustomQueries/customqueries.json",
+    "https://raw.githubusercontent.com/egypt/customqueries/master/customqueries.json",
+    "https://raw.githubusercontent.com/trustedsec/CrackHound/main/customqueries.json",
+    "https://raw.githubusercontent.com/aress31/bloodhound-utils/main/customqueries.json"
   ]
 }
