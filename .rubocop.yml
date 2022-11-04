@@ -4,6 +4,7 @@ AllCops:
   SuggestExtensions: false
   Exclude:
     - 'packages/**/*'
+    - 'vendor/**/*'
 Layout/HashAlignment:
   EnforcedHashRocketStyle: table
 Layout/LineLength:
