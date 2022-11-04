@@ -48,8 +48,6 @@ end
 
 if __FILE__ == $PROGRAM_NAME
   source = find_dataset
-  data = merge(source)
-  queries = deduplicate(data).map(&:data)
 
   require 'optparse'
   options = {}
@@ -63,10 +61,16 @@ if __FILE__ == $PROGRAM_NAME
 
   out = options[:'output-path']
   if out
+    puts "[+] Fetching and merging datasets"
+    data = merge(source)
+    puts "[+] Removing duplicates"
+    queries = deduplicate(data).map(&:data)
+
     File.open(out, 'w') do |file|
       json = JSON.pretty_generate({ 'queries' => queries })
       file.write(json)
     end
+    puts "[+] All queries are merged in #{out}"
   else
     puts 'Help: bqm -h'
   end
