@@ -5,7 +5,7 @@
 [![GitHub license](https://img.shields.io/github/license/Acceis/bqm)](https://github.com/Acceis/bqm/blob/master/LICENSE)
 [![Rawsec's CyberSecurity Inventory](https://inventory.raw.pm/img/badges/Rawsec-inventoried-FF5050_flat.svg)](https://inventory.raw.pm/tools.html#BQM)
 
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Acceis/bqm/Ruby)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/Acceis/bqm/ruby.yml?branch=master)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/y/Acceis/bqm)
 
 ![BQM logo](assets/logo-bqm.png)
