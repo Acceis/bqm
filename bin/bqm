@@ -59,7 +59,11 @@ def pretty_link(lst)
 end
 
 def get_datasets(source)
-  src = JSON.load_file(source)
+  begin # ruby 3.0+
+    src = JSON.load_file(source)
+  rescue NoMethodError # ruby 2.7 retro-compatibility
+    src = JSON.parse(File.read(source))
+  end
   src['sets']
 end
 
