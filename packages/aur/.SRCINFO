@@ -1,14 +1,14 @@
 pkgbase = bqm
 	pkgdesc = Download BloudHound query lists, deduplicate entries and merge them in one file.
-	pkgver = 1.0.2
+	pkgver = 1.2.0
 	pkgrel = 1
 	url = https://github.com/Acceis/bqm
 	arch = any
 	license = MIT
 	depends = ruby
-	noextract = bqm-1.0.2.gem
+	noextract = bqm-1.2.0.gem
 	options = !emptydirs
-	source = https://rubygems.org/downloads/bqm-1.0.2.gem
-	b2sums = 919677d86da6bb3bbb8e74f60edf19c7dcd3ca6549a6e09d624450025ae2369e8391aca394e60c76f08f7083aa43cf5fb19eabfbe201af43983ccf2eddc4c4d1
+	source = https://rubygems.org/downloads/bqm-1.2.0.gem
+	b2sums = 8f7b235d33e07d12a9c063a07f8706400bbe4f007e1d27558641dd0f8ed254e9e5e91442bd48ed1f3e6d83c669b466224f5bfd8e4b4b01b332a2fc8bc28caa06
 
 pkgname = bqm
