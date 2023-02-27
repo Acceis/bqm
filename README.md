@@ -72,6 +72,7 @@ Datasets used by BQM are referenced in `data/query-sets.json`. They are coming f
 - [egypt/customqueries](https://github.com/egypt/customqueries)
 - [trustedsec/CrackHound](https://github.com/trustedsec/CrackHound)
 - [aress31/bloodhound-utils](https://github.com/aress31/bloodhound-utils)
+- [ThePorgs/Exegol-images](https://github.com/ThePorgs/Exegol-images/blob/main/sources/bloodhound/customqueries.json)
 
 ## Author
 

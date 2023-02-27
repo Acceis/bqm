@@ -90,8 +90,24 @@ if __FILE__ == $PROGRAM_NAME
       puts l
     end
   elsif out
+    flags = {}
+    flags[:merge_actual] = false
+    if File.file?(out) && File.readable?(out)
+      puts "[+] The output path #{out} already exists"
+      puts '[?] Do you want to overwrite it? [y/n]'
+      if gets.chomp == 'y'
+        puts '[?] What to do with the existing queries? (merge / discard) [m/d]'
+        flags[:merge_actual] = true if gets.chomp == 'm'
+      else
+        exit
+      end
+    end
     puts '[+] Fetching and merging datasets'
     data = merge(source)
+    if flags[:merge_actual]
+      puts '[+] Merging your existing queries'
+      data += JSON.parse(File.read(out))['queries']
+    end
     puts '[+] Removing duplicates'
     queries = deduplicate(data).map(&:data)
 

@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name          = 'bqm'
-  s.version       = '1.2.0'
+  s.version       = '1.3.0'
   s.platform      = Gem::Platform::RUBY
   s.summary       = 'Download BloudHound query lists, deduplicate entries and merge them in one file.'
   s.description   = 'Deduplicate custom BloudHound queries from different datasets and merge them in one customqueries.json file.'
@@ -24,5 +24,5 @@ Gem::Specification.new do |s|
     'rubygems_mfa_required' => 'true'
   }
 
-  s.required_ruby_version = ['>= 2.6.0', '< 3.3']
+  s.required_ruby_version = ['>= 2.6.0', '< 4.0']
 end

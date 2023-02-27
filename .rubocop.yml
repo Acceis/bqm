@@ -10,3 +10,5 @@ Layout/HashAlignment:
 Layout/LineLength:
   Exclude:
     - '*.gemspec'
+Metrics/BlockNesting:
+  Enabled: false
