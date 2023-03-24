@@ -51,6 +51,11 @@ Example:
 
 ```
 $ bqm -o ~/.config/bloodhound/customqueries.json
+[+] The output path /home/noraj/.config/bloodhound/customqueries.json already exists
+[?] Do you want to overwrite it? [y/n]
+y
+[?] What to do with the existing queries? (merge / discard) [m/d]
+d
 [+] Fetching and merging datasets
 [+] Removing duplicates
 [+] All queries have been merged in /home/noraj/.config/bloodhound/customqueries.json
