@@ -41,3 +41,7 @@ $ pikaur -S bqm
 ```
 
 AUR: [bqm](https://aur.archlinux.org/packages/bqm/)
+
+## Exegol
+
+bqm is included in [Exegol](https://github.com/ThePorgs/Exegol).
