@@ -14,13 +14,32 @@ def find_dataset
   raise IOError, "The dataset file #{source_file} does not exist or is unreadable."
 end
 
-def merge(source)
+# Merge remote sets defined in data/query-sets.json
+def merge_remote(source)
   sets = get_datasets(source)
   queries = []
   sets.each do |s|
     customqueries = Net::HTTP.get(URI(s))
     data = JSON.parse(customqueries)
     queries += data['queries']
+  end
+  queries
+end
+
+# Merge local sets provided by the user
+def merge_local(sources)
+  queries = []
+  sources.each do |source|
+    if File.file?(source) && File.readable?(source)
+      begin
+        data = JSON.load_file(source)
+      rescue NoMethodError # ruby 2.7 retro-compatibility
+        data = JSON.parse(File.read(source))
+      end
+      queries += data['queries']
+    else
+      raise IOError, "The dataset file #{source} does not exist or is unreadable."
+    end
   end
   queries
 end
@@ -72,14 +91,20 @@ if __FILE__ == $PROGRAM_NAME
   source = find_dataset
 
   require 'optparse'
-  options = {}
+  options = {
+    :'local-sets' => []
+  }
   OptionParser.new do |parser|
     parser.banner = 'Usage: bqm [options]'
 
     parser.on('-o', '--output-path PATH', 'Path where to store the query file')
     parser.on('-l', '--list', 'List available datasets')
+    parser.on('-i', '--local-sets FILE,...', Array, 'Local custom queries files') do |f|
+      options[:'local-sets'] += f
+    end
     parser.separator ''
     parser.separator 'Example: bqm -o ~/.config/bloodhound/customqueries.json'
+    parser.separator 'Example: bqm -o /tmp/customqueries.json -i /tmp/a.json,/tmp/b.json'
   end.parse!(into: options)
 
   out = options[:'output-path']
@@ -95,16 +120,20 @@ if __FILE__ == $PROGRAM_NAME
     if File.file?(out) && File.readable?(out)
       puts "[+] The output path #{out} already exists"
       puts '[?] Do you want to overwrite it? [y/n]'
-      if gets.chomp == 'y'
+      if STDIN.gets.chomp == 'y'
         puts '[?] What to do with the existing queries? (merge / discard) [m/d]'
-        flags[:merge_actual] = true if gets.chomp == 'm'
+        flags[:merge_actual] = true if STDIN.gets.chomp == 'm'
       else
         exit
       end
     end
     puts '[+] Fetching and merging datasets'
-    data = merge(source)
-    if flags[:merge_actual]
+    data = merge_remote(source)
+    local_set = options[:'local-sets']
+    if local_set
+      data += merge_local(local_set)
+    end
+    if flags[:'merge_actual']
       puts '[+] Merging your existing queries'
       data += JSON.parse(File.read(out))['queries']
     end

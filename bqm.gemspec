@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name          = 'bqm'
-  s.version       = '1.3.0'
+  s.version       = '1.4.0'
   s.platform      = Gem::Platform::RUBY
   s.summary       = 'Download BloudHound query lists, deduplicate entries and merge them in one file.'
   s.description   = 'Deduplicate custom BloudHound queries from different datasets and merge them in one customqueries.json file.'
@@ -17,8 +17,8 @@ Gem::Specification.new do |s|
 
   s.metadata = {
     'bug_tracker_uri'       => 'https://github.com/Acceis/bqm/issues',
-    # 'changelog_uri'         => 'https://github.com/Acceis/bqm/blob/master/docs/CHANGELOG.md',
-    # 'documentation_uri'     => 'https://github.com/Acceis/bqm',
+    'changelog_uri'         => 'https://github.com/Acceis/bqm/releases',
+    'documentation_uri'     => 'https://acceis.github.io/bqm/',
     'homepage_uri'          => 'https://github.com/Acceis/bqm',
     'source_code_uri'       => 'https://github.com/Acceis/bqm/',
     'rubygems_mfa_required' => 'true'

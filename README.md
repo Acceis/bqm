@@ -23,6 +23,8 @@
 - Remove duplicate queries
 - Merge all queries in one file
 - List all available datasets
+- Merge existing customqueries.json to the output
+- Merge local custom queries files as well as remote ones
 
 ## Install
 
@@ -43,8 +45,10 @@ See [INSTALL](INSTALL.md) for options with package managers.
 Usage: bqm [options]
     -o, --output-path PATH           Path where to store the query file
     -l, --list                       List available datasets
+    -i, --local-sets FILE,...        Local custom queries files
 
 Example: bqm -o ~/.config/bloodhound/customqueries.json
+Example: bqm -o /tmp/customqueries.json -i /tmp/a.json,/tmp/b.json
 ```
 
 Example:
