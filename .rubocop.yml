@@ -12,3 +12,5 @@ Layout/LineLength:
     - '*.gemspec'
 Metrics/BlockNesting:
   Enabled: false
+Metrics/MethodLength:
+  Enabled: false

@@ -30,16 +30,16 @@ end
 def merge_local(sources)
   queries = []
   sources.each do |source|
-    if File.file?(source) && File.readable?(source)
-      begin
-        data = JSON.load_file(source)
-      rescue NoMethodError # ruby 2.7 retro-compatibility
-        data = JSON.parse(File.read(source))
-      end
-      queries += data['queries']
-    else
+    unless File.file?(source) && File.readable?(source)
       raise IOError, "The dataset file #{source} does not exist or is unreadable."
     end
+
+    begin
+      data = JSON.load_file(source)
+    rescue NoMethodError # ruby 2.7 retro-compatibility
+      data = JSON.parse(File.read(source))
+    end
+    queries += data['queries']
   end
   queries
 end
@@ -92,7 +92,7 @@ if __FILE__ == $PROGRAM_NAME
 
   require 'optparse'
   options = {
-    :'local-sets' => []
+    'local-sets': []
   }
   OptionParser.new do |parser|
     parser.banner = 'Usage: bqm [options]'
@@ -120,9 +120,9 @@ if __FILE__ == $PROGRAM_NAME
     if File.file?(out) && File.readable?(out)
       puts "[+] The output path #{out} already exists"
       puts '[?] Do you want to overwrite it? [y/n]'
-      if STDIN.gets.chomp == 'y'
+      if $stdin.gets.chomp == 'y'
         puts '[?] What to do with the existing queries? (merge / discard) [m/d]'
-        flags[:merge_actual] = true if STDIN.gets.chomp == 'm'
+        flags[:merge_actual] = true if $stdin.gets.chomp == 'm'
       else
         exit
       end
@@ -130,10 +130,8 @@ if __FILE__ == $PROGRAM_NAME
     puts '[+] Fetching and merging datasets'
     data = merge_remote(source)
     local_set = options[:'local-sets']
-    if local_set
-      data += merge_local(local_set)
-    end
-    if flags[:'merge_actual']
+    data += merge_local(local_set) if local_set
+    if flags[:merge_actual]
       puts '[+] Merging your existing queries'
       data += JSON.parse(File.read(out))['queries']
     end
