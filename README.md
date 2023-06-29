@@ -25,6 +25,9 @@
 - List all available datasets
 - Merge existing customqueries.json to the output
 - Merge local custom queries files as well as remote ones
+- Merge local bqm query sets file
+- Offline support
+- Folder support
 
 ## Install
 
@@ -45,10 +48,12 @@ See [INSTALL](INSTALL.md) for options with package managers.
 Usage: bqm [options]
     -o, --output-path PATH           Path where to store the query file
     -l, --list                       List available datasets
-    -i, --local-sets FILE,...        Local custom queries files
+    -i FILE,DIRECTORY,...,           Local custom queries files
+        --local-sets
+        --ignore-default             Ignore the default query-sets.json
 
 Example: bqm -o ~/.config/bloodhound/customqueries.json
-Example: bqm -o /tmp/customqueries.json -i /tmp/a.json,/tmp/b.json
+Example: bqm -o /tmp/customqueries.json -i /tmp/a.json,/home/user/folder
 ```
 
 Example:

@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name          = 'bqm'
-  s.version       = '1.4.0'
+  s.version       = '1.5.0'
   s.platform      = Gem::Platform::RUBY
   s.summary       = 'Download BloudHound query lists, deduplicate entries and merge them in one file.'
   s.description   = 'Deduplicate custom BloudHound queries from different datasets and merge them in one customqueries.json file.'
@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.homepage      = 'https://github.com/Acceis/bqm'
   s.license       = 'MIT'
 
-  s.files         = Dir['data/*.json'] + Dir['bin/*'] + ['LICENSE']
+  s.files         = Dir['data/*.json'] + Dir['bin/*'] + ['LICENSE', 'DOC.md']
   s.bindir        = 'bin'
   s.executables   = s.files.grep(%r{^bin/}) { |f| File.basename(f) }
 
