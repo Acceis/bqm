@@ -51,7 +51,7 @@ Usage: bqm [options]
     -i FILE,DIRECTORY,...,           Local custom queries files/directories
         --local-sets
         --ignore-default             Ignore the default query-sets.json
-    -v, --verbose                    Display the name of the merged file
+    -v, --verbose                    Display the name of the merged files/sets
 
 Example: bqm -o ~/.config/bloodhound/customqueries.json
 Example: bqm -o /tmp/customqueries.json -i /tmp/a.json,/home/user/folder
@@ -70,6 +70,8 @@ d
 [+] Removing duplicates
 [+] All queries have been merged in /home/noraj/.config/bloodhound/customqueries.json
 ```
+
+See [DOC](DOC.md) for more explanation about some options.
 
 ## Datasets
 
