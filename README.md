@@ -48,9 +48,10 @@ See [INSTALL](INSTALL.md) for options with package managers.
 Usage: bqm [options]
     -o, --output-path PATH           Path where to store the query file
     -l, --list                       List available datasets
-    -i FILE,DIRECTORY,...,           Local custom queries files
+    -i FILE,DIRECTORY,...,           Local custom queries files/directories
         --local-sets
         --ignore-default             Ignore the default query-sets.json
+    -v, --verbose                    Display the name of the merged file
 
 Example: bqm -o ~/.config/bloodhound/customqueries.json
 Example: bqm -o /tmp/customqueries.json -i /tmp/a.json,/home/user/folder
