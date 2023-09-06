@@ -19,10 +19,15 @@ def merge_remote(source, verbose: false)
   sets = get_datasets(source)
   queries = []
   sets.each do |s|
-    customqueries = Net::HTTP.get(URI(s))
-    data = JSON.parse(customqueries)
-    queries += data['queries']
-    puts "  [*] File merged: #{s}" if verbose
+    begin
+      customqueries = Net::HTTP.get(URI(s))
+      data = JSON.parse(customqueries)
+      queries += data['queries']
+      puts "  [*] File merged: #{s}" if verbose
+    rescue JSON::ParserError => e
+      # Handle the JSON parsing error
+      puts "  [!] JSON parsing error for #{s}"
+    end
   end
   queries
 end
