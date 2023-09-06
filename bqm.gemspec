@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name          = 'bqm'
-  s.version       = '1.5.0'
+  s.version       = '1.5.1'
   s.platform      = Gem::Platform::RUBY
   s.summary       = 'Download BloudHound query lists, deduplicate entries and merge them in one file.'
   s.description   = 'Deduplicate custom BloudHound queries from different datasets and merge them in one customqueries.json file.'
