@@ -21,6 +21,7 @@ Gem::Specification.new do |s|
     'documentation_uri'     => 'https://acceis.github.io/bqm/',
     'homepage_uri'          => 'https://github.com/Acceis/bqm',
     'source_code_uri'       => 'https://github.com/Acceis/bqm/',
+    'funding_uri'           => 'https://github.com/sponsors/noraj',
     'rubygems_mfa_required' => 'true'
   }
 
